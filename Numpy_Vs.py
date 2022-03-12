@@ -137,8 +137,8 @@ trans = test_4.T
 # In[5]:
 
 
-a = np.array(([1, 2, 3, 4, 5], [6, 7, 8, 9, 10])) 
-b = np.max(a, axis=0).sum() 
+a = np.array(([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]))
+b = np.max(a, axis=0).sum()
 print(b)
 
 
@@ -190,3 +190,39 @@ print(practice.dtype)
 
 practice_range = np.arange(1, 8, 2)
 print(practice_range)
+
+grape = [20, 20, 42, 63]
+grape_np = np.array(grape)
+print(grape)
+
+grape_sha = np.reshape(grape, (2, 2))
+print(grape_sha)
+
+grape_sha_ins = np.insert(grape_sha, 2, [3, 2], axis=1)
+# Insert: After the variable(grape_sha), we have the iterable(2): this shows where the inserted array will be put.
+# After the new array. The axis shows whether the new array will be in the row or column. 0 = row, 1 = column.
+print(grape_sha_ins)
+
+print(grape_sha)
+grape_sha_app = np.append(grape_sha, ([2, 5], [3, 5]))
+# Append: If no axis is given, it converts the array into a one dimensional array and adds the new elements.
+print(grape_sha_app)
+
+grape_sha_app_ax = np.append(grape_sha, ([2, 5], [3, 5]), axis=0)
+# If axis is included then the new arrays has to be the same shape with the old array.
+# If these criteria is not met an error will be thrown.
+print(grape_sha_app_ax)
+
+grape_del_app = np.delete(grape_sha_app, 4)
+# Delete: This deletes the fifth element in the selected array. iterable = 4
+print(grape_del_app)
+
+grape_del = np.delete(grape_sha_app_ax, 0, axis=0)
+# Delete: This deletes the 1st row. Iterable = 0, axis = 0 (row)
+print(grape_del)
+
+grape_del_ind = grape_del[grape_del > 4]
+# Indexing: Displays elements in the array which are greater than 4. It is displayed in a one dimensional array
+print(grape_del_ind)
+print(grape_del > 4)
+# Displays True/False. For elements that agree with the statement, True is displayed. If otherwise, False is displayed.
